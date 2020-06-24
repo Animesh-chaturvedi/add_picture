@@ -72,3 +72,29 @@ For request http://localhost:4200/?offset=1 (only two images were present in dat
      "__v":0
 }
 ```
+
+## POST /addimage
+
+To add image directly to local storage and automatic filling of fields
+
+### Request
+
+```
+{
+   "image" : xyz.png
+}
+```
+
+### Response
+
+```
+    {
+        "_id":"5ef3b3469060f341159ecf47","name":"image_1593029446304_Screenshot from 2020-06-24 12-42-17.png",
+        "url":"uploads/image_1593029446304_Screenshot from 2020-06-24 12-42-17.png",
+        "type":"image/png",
+        "id":4,
+        "__v":0
+    }
+
+
+```
