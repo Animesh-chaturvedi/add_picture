@@ -1,5 +1,18 @@
 const router = require("express").Router();
 var Picture = require("./public/picture.js");
+var multer = require("multer");
+var Storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, "uploads/");
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
+  },
+});
+
+var upload = multer({
+  storage: Storage,
+});
 
 router.route("/").get(async (req, res) => {
   console.log("hello");
@@ -47,6 +60,23 @@ router.route("/add").post((req, res) => {
     name: req.body.name,
     url: req.body.url,
     type: req.body.type,
+  });
+
+  newPicture
+    .save()
+    .then(() => res.json(newPicture))
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json("Error: " + err);
+    });
+});
+
+router.route("/addimage").post(upload.single("image"), (req, res) => {
+  console.log(req.file);
+  const newPicture = new Picture({
+    name: req.file.filename,
+    url: req.file.path,
+    type: req.file.mimetype,
   });
 
   newPicture

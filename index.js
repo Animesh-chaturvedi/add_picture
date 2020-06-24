@@ -3,7 +3,7 @@ var app = express();
 var mongoose = require("mongoose");
 // var multer = require("multer");
 var Picture = require("./public/picture.js");
-//app.use(express.static("./"));
+app.use(express.static("./"));
 app.use(express.json());
 // var Storage = multer.diskStorage({
 //   destination: function (req, file, callback) {
