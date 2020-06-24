@@ -51,7 +51,7 @@ router.route("/add").post((req, res) => {
 
   newPicture
     .save()
-    .then(() => res.json("Image added!!"))
+    .then(() => res.json(newPicture))
     .catch((err) => {
       console.log(err);
       res.status(400).json("Error: " + err);
