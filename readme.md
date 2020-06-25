@@ -2,8 +2,8 @@
 
 ## Prerequisites
 
-- Node v
-- npm -v
+- Node -v 3.6 or later
+- npm
 - git
 
 ## Installation
@@ -14,7 +14,7 @@ clone the repo
 git clone
 ```
 
-install depen
+install dependendies
 
 ```
 npm init
