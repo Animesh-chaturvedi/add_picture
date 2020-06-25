@@ -50,12 +50,14 @@ For request http://localhost:4200/?offset=1 (only two images were present in dat
 
 ## POST /add
 
+Makes additional HEAD call to the given url to fetch content-length (size) and content-type (extType) from headers
+
 ### Request
 
 ```
 {
-    "name": "jordan",
-    "url": "https://in.pinterest.com/pin/35325178306198407/"
+    "name": "moutains",
+    "url": "https://www.gstatic.com/webp/gallery/1.jpg"
     "type": "image/png"
 }
 ```
@@ -63,14 +65,16 @@ For request http://localhost:4200/?offset=1 (only two images were present in dat
 ### Response
 
 ```
-{
-    "_id":"5ef3a95eb760eb3a337fe531",
-    "name":"jordan",
-    "url":"https://in.pinterest.com/pin/35325178306198407/",
-    "type":"image/png",
-    "id":3,
-     "__v":0
-}
+{"_id":"5ef434553bb360189a0f43dc",
+"name":"mountains",
+"url":"https://www.gstatic.com/webp/gallery/1.jpg",
+"type":"image/jpg",
+"metaData":{
+    "size":44891,
+    "extType":"image/jpeg"
+    },
+"id":11,
+"__v":0}
 ```
 
 ## POST /addimage
